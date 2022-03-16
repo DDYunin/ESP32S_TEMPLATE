@@ -3,8 +3,9 @@
 
 #include <Arduino.h>
 #include <Wire.h>
+#include <BluetoothSerial.h>
 
-void CHECK_I2C_ID(){
+void CHECK_I2C_ID_SERIAL(){
   
   byte error, address; //variable for error and I2C address
   int nDevices;
