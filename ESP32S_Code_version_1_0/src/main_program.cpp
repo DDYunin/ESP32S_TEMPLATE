@@ -27,12 +27,18 @@ void setup() {
   SerialBT.begin("ESP32test");
  
   mpu.initialize();
+  clock1._init_();
+  dsp._init_();
+  dsp.PrintEmblem();
+  
+  delay(2000);
 }
 
 void loop() {
   CHECK_I2C_ID_BL();
   mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
   CHECK_MPU6050();
+  dsp.PrintText(clock1.GetCurrentDateString() + " ax:" + ax + " ay:" + ay + " az:" + az + " gx:" + gx + " gy:" + gy + " gz:" + gz, WHITE, 1);
   delay(1000);
 }
 
